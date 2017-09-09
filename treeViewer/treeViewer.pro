@@ -16,6 +16,7 @@ TEMPLATE = app
 # depend on your compiler). Please consult the documentation of the
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
+CONFIG += c++14
 
 # You can also make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -25,10 +26,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainWindow.cpp
+        mainWindow.cpp \
+    pointsScene.cpp
 
 HEADERS += \
-        mainWindow.hpp
+        mainWindow.hpp \
+    pointsScene.hpp \
+    utils.hpp
 
 FORMS += \
         mainWindow.ui
