@@ -1,0 +1,3 @@
+[submodule "kdTree"]
+	path = kdTree
+	url = https://github.com/Fredy/KD-Tree.git
