@@ -27,12 +27,16 @@ CONFIG += c++14
 SOURCES += \
         main.cpp \
         mainWindow.cpp \
-    pointsScene.cpp
+    pointsScene.cpp \
+    ../kdTree/kd_tree/kdTree.cpp
 
 HEADERS += \
         mainWindow.hpp \
     pointsScene.hpp \
-    utils.hpp
+    utils.hpp \
+    ../kdTree/kd_tree/kdNode.hpp \
+    ../kdTree/kd_tree/kdTree.hpp \
+    ../kdTree/kd_tree/utils.hpp
 
 FORMS += \
         mainWindow.ui

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>660</width>
+    <height>399</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>381</width>
-      <height>281</height>
+      <width>631</width>
+      <height>381</height>
      </rect>
     </property>
     <property name="autoFillBackground">
@@ -33,6 +33,9 @@
       <width>0.000000000000000</width>
       <height>0.000000000000000</height>
      </rectf>
+    </property>
+    <property name="dragMode">
+     <enum>QGraphicsView::NoDrag</enum>
     </property>
    </widget>
   </widget>

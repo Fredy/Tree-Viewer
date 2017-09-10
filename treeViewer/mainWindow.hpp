@@ -5,6 +5,7 @@ namespace Ui {
 class MainWindow;
 }
 
+class PointsScene;
 class MainWindow : public QMainWindow {
     Q_OBJECT
 
@@ -13,5 +14,6 @@ public:
     ~MainWindow();
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow* ui;
+    PointsScene* pscene;
 };
