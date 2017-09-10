@@ -13,8 +13,8 @@ inline QPointF latLongToQPoint(const double latitude, const double longitude) {
     const double zoom = 2.5;
     const double xinside = 190.0;
     const double yinside = 70.0;
-    double x = zoom * (longitude + xinside);
-    double y = zoom * (-1.0 * latitude + yinside) ;
+    double y = zoom * (longitude + xinside);
+    double x = zoom * (latitude + yinside) ;
     return QPointF(x, y);
 }
 
