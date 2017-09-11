@@ -11,11 +11,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow) {
     ui->setupUi(this);
     pscene = new PointsScene(this);
-    pscene->setSceneRect(QRectF(0, 0, 700, 700));
+    pscene->setSceneRect(QRectF(0, 0, 1000, 4000));
     ui->graphicsView->setScene(pscene);
     // ("just_coordinates.csv")
-    //ifstream file("just_coordinates.csv");
-    ifstream file("test1.csv");
+    ifstream file("just_coordinates.csv");
+    //ifstream file("test1.csv");
     auto points = readCSV(file, true);
     auto qpoints = generateQPoints(points);
     pscene->drawPoints(qpoints);

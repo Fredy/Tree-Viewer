@@ -53,8 +53,8 @@ void PointsScene::drawLines(const KDNode *root) {
         return;
     QPointF point = latLongToQPoint(stod(root->data[0]),
                                     stod(root->data[1]));
-    this->addLine(point.x(), 0, point.x(), 1000, this->colors[0]);
-    drawLinesImp(root->childs[0], 0, point.x(), 0, 1000, 0, 1);
-    drawLinesImp(root->childs[1], point.x(), 1000, 0, 1000, 0, 1);
+    this->addLine(point.x(), 0, point.x(), 5000, this->colors[0]);
+    drawLinesImp(root->childs[0], 0, point.x(), 0, 5000, 0, 1);
+    drawLinesImp(root->childs[1], point.x(), 5000, 0, 5000, 0, 1);
 
 }

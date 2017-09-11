@@ -10,7 +10,7 @@ inline QPointF latLongToQPoint(const double latitude, const double longitude) {
     // Latitude = y
     // Longitude = x
     // Inside is to center the points and zoom to expand them.
-    const double zoom = 2.5;
+    const double zoom = 4.5;
     const double xinside = 190.0;
     const double yinside = 70.0;
     double y = zoom * (longitude + xinside);
