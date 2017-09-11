@@ -1,7 +1,7 @@
 #pragma once
-#include <vector>
-#include <string>
 #include <QPointF>
+#include <string>
+#include <vector>
 using namespace std;
 
 using Point = vector<string>;
@@ -14,7 +14,7 @@ inline QPointF latLongToQPoint(const double latitude, const double longitude) {
     const double xinside = 190.0;
     const double yinside = 70.0;
     double y = zoom * (longitude + xinside);
-    double x = zoom * (latitude + yinside) ;
+    double x = zoom * (latitude + yinside);
     return QPointF(x, y);
 }
 
@@ -23,8 +23,7 @@ inline vector<QPointF> generateQPoints(const vector<Point>& points) {
     // latLongToQPoint.
     vector<QPointF> qpoints(points.size());
     for (size_t i = 0; i < points.size(); i++) {
-        qpoints[i] = latLongToQPoint(stod(points[i][0]),
-                                     stod(points[i][1]));
+        qpoints[i] = latLongToQPoint(stod(points[i][0]), stod(points[i][1]));
     }
     return qpoints;
 }
