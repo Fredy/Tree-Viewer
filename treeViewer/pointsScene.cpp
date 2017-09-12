@@ -1,4 +1,5 @@
 #include "pointsScene.hpp"
+#include <QGraphicsLineItem>
 #include "../kdTree/kd_tree/kdNode.hpp"
 #include "utils.hpp"
 
@@ -25,13 +26,17 @@ void PointsScene::drawLinesImp(const KDNode* node, const double xlow,
     QPointF point = latLongToQPoint(stod(node->data[0]), stod(node->data[1]));
 
     if (axis) {
-        this->addLine(point.x(), ylow, point.x(), yhigh, this->colors[color]);
+        QGraphicsLineItem* lineptr = this->addLine(point.x(), ylow, point.x(),
+                                                   yhigh, this->colors[color]);
+        this->linesPtr.push_back(lineptr);
         drawLinesImp(node->childs[0], xlow, point.x(), ylow, yhigh, !axis,
                      (color + 1) % this->colors.size());
         drawLinesImp(node->childs[1], point.x(), xhigh, ylow, yhigh, !axis,
                      (color + 1) % this->colors.size());
     } else {
-        this->addLine(xlow, point.y(), xhigh, point.y(), this->colors[color]);
+        QGraphicsLineItem* lineptr = this->addLine(
+            xlow, point.y(), xhigh, point.y(), this->colors[color]);
+        this->linesPtr.push_back(lineptr);
         drawLinesImp(node->childs[0], xlow, xhigh, ylow, point.y(), !axis,
                      (color + 1) % this->colors.size());
 
@@ -43,7 +48,21 @@ void PointsScene::drawLinesImp(const KDNode* node, const double xlow,
 void PointsScene::drawLines(const KDNode* root) {
     if (root == nullptr) return;
     QPointF point = latLongToQPoint(stod(root->data[0]), stod(root->data[1]));
-    this->addLine(point.x(), 0, point.x(), 5000, this->colors[0]);
+    QGraphicsLineItem* lineptr =
+        this->addLine(point.x(), 0, point.x(), 5000, this->colors[0]);
+    this->linesPtr.push_back(lineptr);
     drawLinesImp(root->childs[0], 0, point.x(), 0, 5000, 0, 1);
     drawLinesImp(root->childs[1], point.x(), 5000, 0, 5000, 0, 1);
+}
+
+void PointsScene::showLines(int lineNumber) {
+    const int size = this->linesPtr.size();
+    if (lineNumber >= size) {
+        for (int i = 0; i < size; i++) this->linesPtr[i]->setVisible(true);
+    } else {
+        for (int i = 0; i < lineNumber; i++)
+            this->linesPtr[i]->setVisible(true);
+        for (int i = lineNumber; i < size; i++)
+            this->linesPtr[i]->setVisible(false);
+    }
 }

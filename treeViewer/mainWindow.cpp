@@ -22,6 +22,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     KDTree tree(points, 1000);
     pscene->drawLines(tree.root);
+
+    connect(ui->spinBox, SIGNAL(valueChanged(int)), pscene, SLOT(showLines(int)));
 }
 
 MainWindow::~MainWindow() {
