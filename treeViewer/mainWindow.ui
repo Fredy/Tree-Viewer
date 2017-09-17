@@ -48,7 +48,7 @@
        </rectf>
       </property>
       <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+       <set>Qt::AlignCenter</set>
       </property>
       <property name="renderHints">
        <set>QPainter::Antialiasing|QPainter::TextAntialiasing</set>

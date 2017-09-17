@@ -7,13 +7,13 @@ class MainWindow;
 
 class PointsScene;
 class MainWindow : public QMainWindow {
-    Q_OBJECT
+  Q_OBJECT
 
-   public:
-    explicit MainWindow(QWidget* parent = 0);
-    ~MainWindow();
+public:
+  explicit MainWindow(QWidget *parent = 0);
+  ~MainWindow();
 
-   private:
-    Ui::MainWindow* ui;
-    PointsScene* pscene;
+private:
+  Ui::MainWindow *ui;
+  PointsScene *pscene;
 };
