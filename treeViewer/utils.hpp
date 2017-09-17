@@ -6,15 +6,13 @@ using namespace std;
 
 using Point = vector<string>;
 
-inline QPointF latLongToQPoint(const double latitude, const double longitude) {
+inline QPointF xyScale(const double _x, const double _y,
+                               const double scale = 1.0) {
   // Latitude = y
   // Longitude = x
   // Inside is to center the points and zoom to expand them.
-  const double zoom = 8.5;
-  const double xinside = 0.0; // 190.0;
-  const double yinside = 0.0; // 70.0;
-  double y = zoom * (longitude + xinside);
-  double x = zoom * (latitude + yinside);
+  const double x = scale * _x;
+  const double y = scale * _y;
   return QPointF(x, y);
 }
 
@@ -23,7 +21,7 @@ inline vector<QPointF> generateQPoints(const vector<Point> &points) {
   // latLongToQPoint.
   vector<QPointF> qpoints(points.size());
   for (size_t i = 0; i < points.size(); i++) {
-    qpoints[i] = latLongToQPoint(stod(points[i][0]), stod(points[i][1]));
+    qpoints[i] = xyScale(stod(points[i][0]), stod(points[i][1]));
   }
   return qpoints;
 }

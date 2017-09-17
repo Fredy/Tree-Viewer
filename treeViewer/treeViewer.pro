@@ -28,7 +28,8 @@ SOURCES += \
         main.cpp \
         mainWindow.cpp \
     pointsScene.cpp \
-    ../kdTree/kd_tree/kdTree.cpp
+    ../kdTree/kd_tree/kdTree.cpp \
+    treeGraphicsView.cpp
 
 HEADERS += \
         mainWindow.hpp \
@@ -36,7 +37,8 @@ HEADERS += \
     utils.hpp \
     ../kdTree/kd_tree/kdNode.hpp \
     ../kdTree/kd_tree/kdTree.hpp \
-    ../kdTree/kd_tree/utils.hpp
+    ../kdTree/kd_tree/utils.hpp \
+    treeGraphicsView.hpp
 
 FORMS += \
         mainWindow.ui

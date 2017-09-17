@@ -1,6 +1,7 @@
 #include "pointsScene.hpp"
 #include "../kdTree/kd_tree/kdNode.hpp"
 #include "utils.hpp"
+#include <QGraphicsEllipseItem>
 #include <QGraphicsLineItem>
 
 PointsScene::PointsScene() {}
@@ -11,9 +12,12 @@ PointsScene::PointsScene(QObject *parent) : QGraphicsScene(parent) {
 }
 
 void PointsScene::drawPoints(const vector<QPointF> &qpoints) {
-  for (const auto &point : qpoints)
+  for (const auto &point : qpoints) {
     // TODO: change ellipse with a custom class;
-    this->addEllipse(point.x(), point.y(), 2, 2);
+    QGraphicsEllipseItem *tmpPtr =
+        this->addEllipse(point.x() - 1, point.y() - 1, 2, 2);
+    tmpPtr->setZValue(1);
+  }
 }
 // TODO: add a way to visualize the actual point, and its data.
 // and fix the scale.
@@ -26,7 +30,7 @@ void PointsScene::drawLinesImp(const KDNode *node, const double xlow,
   if (node == nullptr)
     return;
   // TODO: draw the line;
-  QPointF point = latLongToQPoint(stod(node->data[0]), stod(node->data[1]));
+  QPointF point = xyScale(stod(node->data[0]), stod(node->data[1]));
 
   if (axis) {
     QGraphicsLineItem *lineptr =
@@ -53,7 +57,7 @@ void PointsScene::drawLines(const KDNode *root, const double xlow,
                             const double yhigh) {
   if (root == nullptr)
     return;
-  QPointF point = latLongToQPoint(stod(root->data[0]), stod(root->data[1]));
+  QPointF point = xyScale(stod(root->data[0]), stod(root->data[1]));
   QGraphicsLineItem *lineptr =
       this->addLine(point.x(), ylow, point.x(), yhigh, this->colors[0]);
   this->linesPtr.push_back(lineptr);
