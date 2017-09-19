@@ -17,6 +17,8 @@ void PointsScene::drawPoints(const vector<QPointF> &qpoints) {
     // TODO: change ellipse with a custom class;
     QGraphicsEllipseItem *tmpPtr =
         this->addEllipse(point.x() - 1, point.y() - 1, 2, 2);
+    // TODO: make one more drawPoint function that draw the 'normal'
+    // points, the botom one draws 'guide' points.
     tmpPtr->setZValue(1);
   }
 }

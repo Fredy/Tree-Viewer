@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
   // pscene->setSceneRect(QRectF(0, 0, 1000, 1000));
   ui->graphicsView->setScene(pscene);
 
-  ifstream file("just_coordinates.csv");
+  ifstream file("crime50k_just_coords.csv");
   // ifstream file("test1.csv");
 
   auto points = readCSV(file, true);
