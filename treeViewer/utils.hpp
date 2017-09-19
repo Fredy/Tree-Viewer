@@ -7,7 +7,7 @@ using namespace std;
 using Point = vector<string>;
 
 inline QPointF xyScale(const double _x, const double _y,
-                               const double scale = 1.0) {
+                               const double scale = 3.0) {
   // Latitude = y
   // Longitude = x
   // Inside is to center the points and zoom to expand them.
